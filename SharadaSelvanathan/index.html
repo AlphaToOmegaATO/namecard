@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sharada Selvanathan | Alpha to Omega</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #f0f2f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 20px;
+    }
+
+    .instruction {
+      margin-bottom: 18px;
+      color: #555;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .card {
+      width: 320px;
+      height: 560px;          
+      perspective: 1500px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.75s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .card-front img,
+    .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 380px) {
+      .card {
+        width: 90vw;
+        height: calc(90vw * 1.75);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="instruction">Tap the card to flip</div>
+
+  <div class="card" id="businessCard">
+    <div class="card-inner">
+      <div class="card-front">
+
+        <img src="front.png" alt="Front - Sharada Selvanathan">
+      </div>
+      <div class="card-back">
+        <img src="back.png" alt="Back - Alpha to Omega">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('businessCard');
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  </script>
+
+</body>
+</html>
