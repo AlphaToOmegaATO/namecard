@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Founder of Alpha to Omega Singapore">
   <title>Sharada Selvanathan | Alpha to Omega</title>
   <style>
     * {
@@ -35,6 +35,7 @@
       height: 560px;          
       perspective: 1500px;
       cursor: pointer;
+      position: relative;
     }
 
     .card-inner {
@@ -51,8 +52,7 @@
       transform: rotateY(180deg);
     }
 
-    .card-front,
-    .card-back {
+    .card-front, .card-back {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -61,8 +61,7 @@
       overflow: hidden;
     }
 
-    .card-front img,
-    .card-back img {
+    .card-front img, .card-back img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -71,6 +70,32 @@
 
     .card-back {
       transform: rotateY(180deg);
+    }
+
+    .link-overlay {
+      position: absolute;
+      z-index: 10;
+      background: rgba(255, 0, 0, 0.2);
+    }
+    
+    .phone-link {
+      top: 48%;
+      left: 15%;
+      width: 70%;
+      height: 6%;
+    }
+    
+    .email-link {
+      top: 58%;
+      left: 10%;
+      width: 80%;
+      height: 6%;
+    }
+    
+    .link-overlay a {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     /* Mobile optimization */
@@ -89,8 +114,13 @@
   <div class="card" id="businessCard">
     <div class="card-inner">
       <div class="card-front">
-
         <img src="front.png" alt="Front - Sharada Selvanathan">
+        <div class="link-overlay phone-link">
+          <a href="tel:+6593880915" title="Call +65 9388 0915"></a>
+        </div>
+        <div class="link-overlay email-link">
+          <a href="mailto:sharada@alphatoomega.org" title="Email sharada@alphatoomega.org"></a>
+        </div>
       </div>
       <div class="card-back">
         <img src="back.png" alt="Back - Alpha to Omega">
@@ -100,7 +130,8 @@
 
   <script>
     const card = document.getElementById('businessCard');
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       card.classList.toggle('flipped');
     });
   </script>
