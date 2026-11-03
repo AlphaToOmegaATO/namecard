@@ -75,7 +75,14 @@
     .link-overlay {
       position: absolute;
       z-index: 10;
-      background: transparent;
+      background: rgba(255, 0, 0, 0.2);
+    }
+
+    .address-link {
+      top: 34%;
+      left: 12%;
+      width: 76%;
+      height: 9%;
     }
     
     .phone-link {
@@ -115,6 +122,12 @@
     <div class="card-inner">
       <div class="card-front">
         <img src="front.png" alt="Front - Sharada Selvanathan">
+        <div class="link-overlay address-link">
+          <a href="https://maps.google.com/?q=586+Orchard+Road,+%2310-01+Forum+Office+Tower,+Singapore+238884" 
+             title="Open address in Maps"
+             target="_blank"
+             rel="noopener"></a>
+        </div>
         <div class="link-overlay phone-link">
           <a href="tel:+6593880915" title="Call +65 9388 0915"></a>
         </div>
